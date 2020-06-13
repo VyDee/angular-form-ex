@@ -10,4 +10,3 @@ Template driven forms vs Reactive forms
     with the template)
     -- unit test against form model
     -- validation in form model
-    -- test

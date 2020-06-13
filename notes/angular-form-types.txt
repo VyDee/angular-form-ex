@@ -1,0 +1,12 @@
+Template driven forms vs Reactive forms
+
+>>> Template driven forms
+    -- use a component's Template
+    -- unit test against DOM
+
+>>> Reactive forms
+    -- use a component's Template
+    -- create a form model in typescript (this must by in sync
+    with the template)
+    -- unit test against form model
+    -- validation in form model

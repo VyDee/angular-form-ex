@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ps-demo": {
+    "angular-form": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ps-demo",
+            "outputPath": "dist/angular-form",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -57,18 +57,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ps-demo:build"
+            "browserTarget": "angular-form:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ps-demo:build:production"
+              "browserTarget": "angular-form:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ps-demo:build"
+            "browserTarget": "angular-form:build"
           }
         },
         "test": {
@@ -102,7 +102,7 @@
         }
       }
     },
-    "ps-demo-e2e": {
+    "angular-form-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -111,11 +111,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ps-demo:serve"
+            "devServerTarget": "angular-form:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ps-demo:serve:production"
+              "devServerTarget": "angular-form:serve:production"
             }
           }
         },
@@ -131,5 +131,5 @@
       }
     }
   },
-  "defaultProject": "ps-demo"
+  "defaultProject": "angular-form"
 }

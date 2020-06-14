@@ -1,0 +1,6 @@
+
+/* Make sure there is no spaces or commas between ng-touched and invalid
+like example below */
+.ng-invalid:not(form).ng-touched{
+    border: 1px solid red;
+}

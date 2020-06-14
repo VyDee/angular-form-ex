@@ -1,0 +1,15 @@
+using NgForm
+    <form #form="ngForm">
+
+using ngModel
+    Builds form.value
+    name attribute is required
+
+creating a data model 
+    used an interface
+
+two-way data binding
+    [(ngModel)] = "variable"
+
+copying form data 
+    obj = { ... originalObj };

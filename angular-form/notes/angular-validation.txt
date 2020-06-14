@@ -1,0 +1,31 @@
+Validation Classes in Angular
+    -- ng-untouched (matches with untouched property in NgModel)
+        ** field starts off with untouched classes
+
+    -- ng-touched (matches with touched property in NgModel)
+        ** when we click somewhere and lose focus, "untouched"
+        will be replaced with "touched"
+
+    -- ng-pristine (matches with pristine property in NgModel)
+        ** field starts off with pristine meaning unmodified
+    
+    -- ng-dirty (matches with dirty property in NgModel)
+        ** as soon as you modify the field, "pristine" is removed
+        and "dirty" will place in there
+    
+    -- ng-valid (matches with valid property in NgModel)
+        ** if the value is valid
+
+    --ng-invalid (matches with invalid property in NgModel)
+        ** if the value is invalid
+
+Example:
+<input id="name" name="name" class="form-control" [(ngModel)]="userSettings.name"
+              required #propertyTest="ngModel"/>
+
+<h3>dirty: {{ propertyTest.dirty }}</h3>
+<h3>pristine: {{ propertyTest.pristine }}</h3>
+<h3>touched: {{ propertyTest.touched }}</h3>
+<h3>untouched: {{ propertyTest.untouched }}</h3>
+<h3>valid: {{ propertyTest.valid }}</h3>
+<h3>invalid: {{ propertyTest.invalid }}</h3>

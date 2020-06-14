@@ -2,13 +2,24 @@
   <h2>User Setting</h2>
 
   <!--Add in ngForm so we have access to different ngForm function-->
-  <form #form="ngForm">
+  <!--ngNativeValidate will allow browser to validate controller-->
+  <form #form="ngForm" ngNativeValidate>
 
     <!--Input-->
     <div class="form-group">
       <!--The label used (for = "name") and linked with the (id="name") in input -->
       <label for="name">Name</label>
-      <input id="name" name="name" class="form-control" [(ngModel)]="userSettings.name"/>
+
+      <!--This field is required-->
+      <input id="name" name="name" class="form-control" [(ngModel)]="userSettings.name"
+              required #nameField="ngModel">
+      <div [hidden]="nameField.valid || nameField.untouched"class="alert alert-danger">
+        Enter a Name
+      </div>
+
+      <!-- This field is required the input to start with a B
+        <input id="name" name="name" class="form-control" [(ngModel)]="userSettings.name"
+        pattern="B.*"/> -->
     </div>
 
     <!--Checkbox-->

@@ -1,0 +1,7 @@
+HTML5 Validation Attributes
+    required
+    pattern
+    minlength
+    maxlength
+    min
+    max 

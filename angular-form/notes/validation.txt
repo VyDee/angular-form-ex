@@ -1,0 +1,24 @@
+HTML5 Validation Attributes
+    required
+    pattern --specify expression
+    minlength -- for string
+    maxlength -- for string
+    min -- for number
+    max -- for number
+
+CSS Classes for Validation
+    ng-touched, ng-untouched
+    ng-pristine, ng-dirty
+    ng-valid, ng-invalid
+
+NgModel Properties for Validation
+    Based on classes without "ng-"
+
+Styling Forms with Validation Errors
+
+Submitting Forms
+    (ngSubmit)="onSubmit()"
+    form.submitted flag
+
+Handling Form Control Events
+    (blur)="onBlur()"

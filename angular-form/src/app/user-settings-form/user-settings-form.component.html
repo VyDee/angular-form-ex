@@ -11,7 +11,9 @@
 
       <!--This field is required-->
       <input id="name" name="name" class="form-control" [(ngModel)]="userSettings.name"
-              required #nameField="ngModel" [class.field-error]="form.submitted && nameField.invalid">
+              required #nameField="ngModel" 
+              (blur)="onBlur(nameField)"
+              [class.field-error]="form.submitted && nameField.invalid">
       <div [hidden]="!form.submitted || nameField.valid"class="alert alert-danger">
         Enter a Name
       </div>

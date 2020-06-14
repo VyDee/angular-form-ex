@@ -2,8 +2,7 @@
   <h2>User Setting</h2>
 
   <!--Add in ngForm so we have access to different ngForm function-->
-  <!--ngNativeValidate will allow browser to validate controller-->
-  <form #form="ngForm" ngNativeValidate>
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
 
     <!--Input-->
     <div class="form-group">
@@ -12,8 +11,8 @@
 
       <!--This field is required-->
       <input id="name" name="name" class="form-control" [(ngModel)]="userSettings.name"
-              required #nameField="ngModel">
-      <div [hidden]="nameField.valid || nameField.untouched"class="alert alert-danger">
+              required #nameField="ngModel" [class.field-error]="form.submitted && nameField.invalid">
+      <div [hidden]="!form.submitted || nameField.valid"class="alert alert-danger">
         Enter a Name
       </div>
 

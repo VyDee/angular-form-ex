@@ -1,0 +1,11 @@
+1/ import FormsModule from '@angular/forms' and FormsModule
+    under imports in (app.module.ts)
+
+2/ Create a form component
+    -- using command line : ng g c form-name
+            >> create a folder and link everything together
+
+3/ Using bootstrap for styling
+    -- install bootstrap: npm install --save bootstrap
+    -- add "node_modules/bootstrap/dist/css/bootstrap.min.css" to 
+    styles in (angular.json)

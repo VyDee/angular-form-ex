@@ -1,6 +1,9 @@
 <div class="container">
   <h2>User Setting</h2>
-  <form>
+
+  <!--Add in ngForm so we have access to different ngForm function-->
+  <form #form="ngForm">
+
     <!--Input-->
     <div class="form-group">
       <!--The label used (for = "name") and linked with the (id="name") in input -->
@@ -74,3 +77,5 @@
     <button class="btn btn-primary">Send</button>
   </form>
 </div>
+
+{{form | json}} <!--We can see all value in our form in json-->

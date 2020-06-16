@@ -9,3 +9,6 @@
     -- install bootstrap: npm install --save bootstrap
     -- add "node_modules/bootstrap/dist/css/bootstrap.min.css" to 
     styles in (angular.json) before styles.css
+
+4/ Create a form service
+    -- use command line: ng g s service-name

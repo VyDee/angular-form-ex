@@ -20,7 +20,7 @@ Validation Classes in Angular
         ** if the value is invalid
 
 Example:
-<input id="name" name="name" class="form-control" [(ngModel)]="userSettings.name"
+<input id="name" name="name" class="form-control" [(ngModel)]="UserSettings.name"
               required #propertyTest="ngModel"/>
 
 <h3>dirty: {{ propertyTest.dirty }}</h3>

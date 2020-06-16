@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { userSettings } from '../data/user-setting';
+import { UserSettings } from '../data/user-setting';
 import { NgForm, NgModel } from '@angular/forms';
+import { DataService } from '../data/data.service';
 
 @Component({
   selector: 'app-user-settings-form',
@@ -9,26 +10,30 @@ import { NgForm, NgModel } from '@angular/forms';
 })
 export class UserSettingsFormComponent implements OnInit {
 
-  originalUserSetting: userSettings = {
-    name: '',
-    emailOffers: false,
-    interfaceStyle: '',
-    subscriptionType: '',
-    notes: ""
+  originalUserSetting: UserSettings = {
+    name: null,
+    emailOffers: null,
+    interfaceStyle: null,
+    subscriptionType: null,
+    notes: null
 
   };
 
   // The ... operator will copy everything in the originalUserSetting and set it to
-  // the userSettings
-  userSettings  : userSettings = { ...this.originalUserSetting};
+  // the UserSettings
+  userSettings  : UserSettings = { ...this.originalUserSetting};
   
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
   }
 
   onSubmit(form: NgForm){
     console.log("in onSubmit: ", form.valid);
+    this.dataService.postUserSettingsForm(this.userSettings).subscribe(
+      result => console.log('success: ', result),
+      error => console.log('error: ', error)
+    );
   }
 
   onBlur(field:NgModel){

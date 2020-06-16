@@ -1,0 +1,10 @@
+HTTP set up
+
+1/ import HttpClientModule into (app.module.ts)
+2/ inject and import into our service (for ex: data.service.ts)
+3/ This clip used https://putsreq.com and create putsreq and copy the url
+    to post (fake server)
+        Example:
+            var parsedBody = JSON.parse(request.body)
+            parseBody.id = '1234'
+            response.body = parsedBody;

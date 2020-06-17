@@ -59,9 +59,10 @@
     <div class="form-group">
       <label for="subscriptionType">Subscription Type</label>
       <select class="form-control" id="subscriptionType" name="subscriptionType" [(ngModel)]="userSettings.subscriptionType">
-        <option>Monthly</option>
-        <option>Annual</option>
-        <option>Lifetime</option>
+        <!--since subscriptionType is an observable, we use async-->
+        <option *ngFor="let type of subscriptionTypes | async ">
+          {{ type }}
+        </option>
       </select>
     </div>
 
@@ -85,7 +86,10 @@
       <input type="date" id="testing" name="testing" 
               class="form-control">
     </div> -->
-
+    
+    <div [hidden]="!postError" class="alert alert-danger">
+      {{ postErrorMessage }}
+    </div>
     <button class="btn btn-primary">Send</button>
   </form>
 </div>

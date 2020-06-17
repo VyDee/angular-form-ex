@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DataService {
-
+  
   constructor(private http: HttpClient) { }
 
   postUserSettingsForm(userSettings: UserSettings) : Observable<any> {
@@ -15,4 +15,7 @@ export class DataService {
     // return of(userSettings);
   }
 
+  getsubscriptionTypes(): Observable<string[]> {
+    return of(['Monthly', 'Annual', 'Lifetime']);
+  }
 }

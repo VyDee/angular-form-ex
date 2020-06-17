@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserSettings } from '../data/user-setting';
 import { NgForm, NgModel } from '@angular/forms';
 import { DataService } from '../data/data.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-user-settings-form',
@@ -22,18 +23,38 @@ export class UserSettingsFormComponent implements OnInit {
   // The ... operator will copy everything in the originalUserSetting and set it to
   // the UserSettings
   userSettings  : UserSettings = { ...this.originalUserSetting};
+  postError = false;
+  postErrorMessage = '';
+  subscriptionTypes: Observable<string[]>;
+  // subscriptionTypes = ['one','two'];
   
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
+    this.subscriptionTypes = this.dataService.getsubscriptionTypes();
+  }
+
+  onHttpError(errorResponse:any) {
+    console.log('error: ', errorResponse);
+    this.postError = true;
+    this.postErrorMessage = errorResponse.error.errorMessage;
+    
   }
 
   onSubmit(form: NgForm){
     console.log("in onSubmit: ", form.valid);
-    this.dataService.postUserSettingsForm(this.userSettings).subscribe(
-      result => console.log('success: ', result),
-      error => console.log('error: ', error)
-    );
+
+    if(form.valid) {
+      this.dataService.postUserSettingsForm(this.userSettings).subscribe(
+        result => console.log('success: ', result),
+        error => this.onHttpError(error)
+      );
+    }
+    else{
+      this.postError = true;
+      this.postErrorMessage = "Pleae fix the above errors";
+    }
+    
   }
 
   onBlur(field:NgModel){

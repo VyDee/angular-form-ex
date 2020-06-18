@@ -20,6 +20,8 @@ export class UserSettingsFormComponent implements OnInit {
 
   };
 
+  singleModel = "On";
+
   // The ... operator will copy everything in the originalUserSetting and set it to
   // the UserSettings
   userSettings  : UserSettings = { ...this.originalUserSetting};

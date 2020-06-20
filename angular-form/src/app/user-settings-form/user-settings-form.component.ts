@@ -23,6 +23,7 @@ export class UserSettingsFormComponent implements OnInit {
   singleModel = "On";
 
   startDate: Date;
+  startTime: Date;
   // The ... operator will copy everything in the originalUserSetting and set it to
   // the UserSettings
   userSettings  : UserSettings = { ...this.originalUserSetting};
@@ -36,6 +37,7 @@ export class UserSettingsFormComponent implements OnInit {
   ngOnInit() {
     this.subscriptionTypes = this.dataService.getsubscriptionTypes();
     this.startDate = new Date();
+    this.startTime = new Date();
   }
 
   onHttpError(errorResponse:any) {

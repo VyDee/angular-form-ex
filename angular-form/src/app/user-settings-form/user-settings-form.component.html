@@ -13,7 +13,7 @@
       <input id="name" name="name" class="form-control" [(ngModel)]="userSettings.name"
               required #nameField="ngModel" 
               (blur)="onBlur(nameField)"
-              [class.field-error]="form.submitted && nameField.invalid">
+              [class.field-error]="form.submitted && nameField.invalid" #propertyTest="ngModel">
       <div [hidden]="!form.submitted || nameField.valid"class="alert alert-danger">
         Enter a Name
       </div>
@@ -30,6 +30,10 @@
            class="form-control"
            [(ngModel)]="startDate" name="startDate" id="startDate"
            bsDaterangepicker>
+    </div>
+    <div class="form-group">
+      <label for="startTime">Start Time</label>
+      <timepicker [(ngModel)]="startTime" name="startTime"></timepicker>
     </div>
 
     Start Date: {{ startDate }}
@@ -120,4 +124,12 @@
   </form>
 </div>
 
-<h3>{{userSettings | json}}</h3> <!--We can see all value in our form in json-->
+<h3>userSettings: {{userSettings | json}}</h3> <!--We can see all value in our form in json-->
+<br/>
+<h3>propertyTest</h3>
+<h5>dirty: {{ propertyTest.dirty }}</h5>
+<h5>pristine: {{ propertyTest.pristine }}</h5>
+<h5>touched: {{ propertyTest.touched }}</h5>
+<h5>untouched: {{ propertyTest.untouched }}</h5>
+<h5>valid: {{ propertyTest.valid }}</h5>
+<h5>invalid: {{ propertyTest.invalid }}</h5>
